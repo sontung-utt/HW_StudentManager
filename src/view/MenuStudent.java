@@ -6,6 +6,7 @@ import manager.StudentManager;
 import model.Classes;
 import model.Student;
 import pagination.StudentPagination;
+import validate.RegexName;
 
 import java.util.List;
 
@@ -61,8 +62,7 @@ public class MenuStudent {
 
     private void showAddStudent() {
         System.out.println("=====Thêm mới sinh viên=====");
-        System.out.print("Nhập tên sinh viên: ");
-        String name = Input.inputString();
+        String name = RegexName.validateName();
         System.out.print("Nhập giới tính: ");
         String gender = Input.inputString();
         System.out.println("Danh sách lớp học");
@@ -110,8 +110,7 @@ public class MenuStudent {
         System.out.print("Nhập mã sinh viên muốn sửa: ");
         int idEdit = Input.inputInteger();
         if (studentManager.findIndexById(idEdit)!=-1) {
-            System.out.print("Nhập tên sinh viên: ");
-            String name = Input.inputString();
+            String name = RegexName.validateName();
             System.out.print("Nhập giới tính: ");
             String gender = Input.inputString();
             System.out.println("Danh sách lớp học");
